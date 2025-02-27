@@ -77,18 +77,22 @@
                     <div>
                         <h2 class="font-bold text-lg">Wrist Size</h2>
                         <div class="space-x-2">
+                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md
+                                font-bold">
+                                S $69
+                            </button>
                             <button
-                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">S
-                                $69<button>
-                                    <button
-                                        class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">M
-                                        $79<button>
-                                            <button
-                                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">L
-                                                $89<button>
-                                                    <button
-                                                        class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">XL
-                                                        $99<button>
+                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
+                                M $79
+                            </button>
+                            <button
+                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
+                                L $89
+                            </button>
+                            <button
+                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
+                                XL $99
+                            </button>
                         </div>
                     </div>
 
@@ -124,18 +128,18 @@
 
         <!-- checkout section  -->
         <button onclick="checkOut.showModal()"
-            class="mx-auto mb-7 text-xl font-bold text-white bg-orange-400 hover:bg-orange-500 px-5 py-2 rounded-lg flex items-center">
+            class="mx-auto mb-7 text-xl font-bold text-white bg-orange-400 hover:bg-orange-500 px-5 py-2 rounded-xl flex items-center">
             checkout <p class="bg-white w-6 ml-2 rounded-md text-orange-400">0</p>
         </button>
 
         <!-- dialog container  -->
-        <dialog id="checkOut" class="modal modal-bottom sm:modal-middle"> 
+        <dialog id="checkOut" class="modal">
 
             <!-- dialog box  -->
-            <div class="bg-white p-8 rounded-xl">
+            <div class="bg-white py-8 md:p-8 rounded-xl">
 
                 <!-- title  -->
-                <h3 class="text-lg font-bold">Your Cart</h3>
+                <h3 class="p-5 text-lg font-bold">Your Cart</h3>
 
                 <!-- table  -->
                 <div class="overflow-x-auto overflow-y-auto max-h-96">
@@ -155,9 +159,9 @@
                         <tbody>
                             <!-- row 1 -->
                             <tr>
-                                <td class="flex items-center space-x-4">
+                                <td class="md:flex items-center">
                                     <img class="w-12 rounded-md" src="assets/images/purple.png" alt="">
-                                    <p class="text-sm font-bold">Classy Modern Smart Watch</p>
+                                    <p class="md:pl-3 text-sm font-bold">Classy Modern Smart Watch</p>
                                 </td>
                                 <td>Purple</td>
                                 <td>M</td>
@@ -193,8 +197,11 @@
                         <button class="btn bg-purple-600 text-white">Checkout</button>
                     </form>
                 </div>
+
             </div>
-        </dialog> 
+        </dialog>
+
+
     </main>
 </body>
 
