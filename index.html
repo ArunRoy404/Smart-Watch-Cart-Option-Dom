@@ -46,13 +46,14 @@
                         <p class="text-purple-600 font-bold text-2xl">$79.00</p>
                     </div>
 
-                    <p class="text-gray-600 m-w-[500px]">I must explain to you how all this mistaken idea of denouncing pleasure and
-                    praising pain was
-                    born and I will give you a complete account of the system, and expound the actual teaching.
+                    <p class="text-gray-600 m-w-[500px]">I must explain to you how all this mistaken idea of denouncing
+                        pleasure and
+                        praising pain was
+                        born and I will give you a complete account of the system, and expound the actual teaching.
                     <p>
 
 
-                    <!-- type  -->
+                        <!-- type  -->
                     <div>
                         <h2><span class="font-bold text-lg">Type:</span> Watch</h2>
                         <h2><span class="font-bold text-lg">Model:</span> Forerunner 290XT</h2>
@@ -76,10 +77,18 @@
                     <div>
                         <h2 class="font-bold text-lg">Wrist Size</h2>
                         <div class="space-x-2">
-                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">S $69<button>
-                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">M $79<button>
-                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">L $89<button>
-                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">XL $99<button>
+                            <button
+                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">S
+                                $69<button>
+                                    <button
+                                        class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">M
+                                        $79<button>
+                                            <button
+                                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">L
+                                                $89<button>
+                                                    <button
+                                                        class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">XL
+                                                        $99<button>
                         </div>
                     </div>
 
@@ -97,7 +106,9 @@
                         </div>
 
                         <!-- add curt button  -->
-                        <button class="hover:bg-purple-800 bg-purple-600 px-7 py-3 rounded-2xl text-white text-xl font-bold">Add To
+                        <button
+                            class="hover:bg-purple-800 bg-purple-600 px-7 py-3 rounded-2xl text-white text-xl font-bold">Add
+                            To
                             Cart</button>
 
                         <!-- heart icon  -->
@@ -112,11 +123,78 @@
         </div>
 
         <!-- checkout section  -->
-        <div class="mx-auto w-40 hidden">
-            <button class="text-xl font-bold text-white bg-orange-400 hover:bg-orange-500 px-5 py-2 rounded-lg flex items-center">
-                checkout <p class="bg-white w-6 ml-2 rounded-md text-orange-400">0</p>
-            </button>
-        </div>
+        <button onclick="checkOut.showModal()"
+            class="mx-auto mb-7 text-xl font-bold text-white bg-orange-400 hover:bg-orange-500 px-5 py-2 rounded-lg flex items-center">
+            checkout <p class="bg-white w-6 ml-2 rounded-md text-orange-400">0</p>
+        </button>
+
+        <!-- dialog container  -->
+        <dialog id="checkOut" class="modal modal-bottom sm:modal-middle"> 
+
+            <!-- dialog box  -->
+            <div class="bg-white p-8 rounded-xl">
+
+                <!-- title  -->
+                <h3 class="text-lg font-bold">Your Cart</h3>
+
+                <!-- table  -->
+                <div class="overflow-x-auto overflow-y-auto max-h-96">
+                    <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr class="text-sm text-black">
+                                <th>Item</th>
+                                <th>Color</th>
+                                <th>Size</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <!-- table body  -->
+                        <tbody>
+                            <!-- row 1 -->
+                            <tr>
+                                <td class="flex items-center space-x-4">
+                                    <img class="w-12 rounded-md" src="assets/images/purple.png" alt="">
+                                    <p class="text-sm font-bold">Classy Modern Smart Watch</p>
+                                </td>
+                                <td>Purple</td>
+                                <td>M</td>
+                                <td>5</td>
+                                <td>$<span>395.00</span></td>
+                            </tr>
+                        </tbody>
+
+                        <!-- table foot  -->
+                        <tfoot>
+                            <tr class="text-sm text-black">
+                                <th>TOTAL</th>
+                                <td></td>
+                                <td></td>
+                                <td>5</td>
+                                <td>$<span>395.00</span></td>
+                            </tr>
+                        </tfoot>
+
+
+                    </table>
+                </div>
+
+
+                <!-- button container  -->
+                <div class="modal-action">
+                    <!-- continue shopping  -->
+                    <form method="dialog">
+                        <button class="btn">Continue shopping</button>
+                    </form>
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn bg-purple-600 text-white">Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </dialog> 
     </main>
 </body>
 
