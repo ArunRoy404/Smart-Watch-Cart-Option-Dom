@@ -74,25 +74,13 @@
 
 
                     <!-- Size Buttons  -->
-                    <div>
+                    <div id="size-container">
                         <h2 class="font-bold text-lg">Wrist Size</h2>
                         <div class="space-x-2">
-                            <button class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md
-                                font-bold">
-                                S $69
-                            </button>
-                            <button
-                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
-                                M $79
-                            </button>
-                            <button
-                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
-                                L $89
-                            </button>
-                            <button
-                                class="hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">
-                                XL $99
-                            </button>
+                            <button value="S $69" class="size-btn hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">S $69</button>
+                            <button value="M $79" class="size-btn hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">M $79</button>
+                            <button value="L $89" class="size-btn hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">L $89</button>
+                            <button value="XL $99" class="size-btn hover:bg-gray-200 border-2 border-gray-400 w-20 h-20 rounded-xl text-md font-bold">XL $99</button>
                         </div>
                     </div>
 
@@ -101,11 +89,11 @@
                     <div class="flex items-center gap-5">
                         <!-- counter  -->
                         <div>
-                            <div
+                            <div id="counter-container"
                                 class="text-xl font-bold rounded-xl flex justify-between items-center px-4 py-1 border-2 border-gray-400 w-32">
-                                <button>-</button>
-                                <p>0</p>
-                                <button>+</button>
+                                <button id="-" class="counter-btn" >-</button>
+                                <p id="counter">0</p>
+                                <button id="+" class="counter-btn">+</button>
                             </div>
                         </div>
 

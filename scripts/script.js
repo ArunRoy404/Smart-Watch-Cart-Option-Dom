@@ -1,5 +1,7 @@
-let color, size, perPrice, quantity;
+let imgPath, color, size, perPrice, quantity;
 
+
+// color Selection 
 // document.getElementById('color-container').addEventListener('click',function(event){
 //     const btn = event.target
 //     if(btn.classList.contains('color-btn')){
@@ -43,8 +45,8 @@ let color, size, perPrice, quantity;
 //  }
 
 document.getElementById('color-container').addEventListener('click',function(event){
-    const buttonList = document.querySelectorAll('.color-btn')
     const btn = event.target
+    const buttonList = document.querySelectorAll('.color-btn')
     if(btn.classList.contains('color-btn')){
         for(const button of buttonList){
             button.classList.remove('border-purple-400')
@@ -52,6 +54,41 @@ document.getElementById('color-container').addEventListener('click',function(eve
         color = btn.value
         btn.classList.add('border-purple-400')
         const img = document.getElementById('product-img')
-        img.src = "assets/images/"+ color +".png"
+        imgPath = "assets/images/"+ color +".png"
+        img.src = imgPath
     }
 })
+
+
+// Size Selection 
+document.getElementById('size-container').addEventListener('click',function(event){
+    const btn = event.target
+    const buttonList = this.querySelectorAll('.size-btn')
+    if(btn.classList.contains('size-btn')){
+        for(const button of buttonList){
+            button.classList.remove('border-purple-400')
+        }
+        btn.classList.add('border-purple-400')
+        const value = btn.value.split(' $')
+        size = value[0]
+        perPrice = value[1]
+    }
+})
+
+
+// quantity selection 
+document.getElementById('counter-container').addEventListener('click',function(event){
+    let counter = parseInt(document.getElementById('counter').innerText)
+    let amount = 0
+    const btn = event.target
+    if(btn.classList.contains('counter-btn')){ 
+        console.log(btn.id)
+        amount = (btn.id === '+')
+                        ? 1
+                        : -1
+    }
+    counter = Math.max(0, counter + amount)
+    console.log(counter,amount)
+    document.getElementById('counter').innerText = counter
+})
+
