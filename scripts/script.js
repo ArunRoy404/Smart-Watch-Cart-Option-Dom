@@ -94,3 +94,20 @@ document.getElementById('counter-container').addEventListener('click',function(e
 })
 
 
+// add to cart 
+document.getElementById('cart-btn').addEventListener('click',function(){
+    if(imgPath === undefined || color === undefined || size === undefined || size === undefined || counter === undefined){
+        alert("Please Select all options")
+    }
+    const product = {
+        imgPath: imgPath,
+        color: color,
+        size: size,
+        perPrice: perPrice,
+        quantity: quantity
+    }
+    checkOut(product)
+    document.getElementById('checkout-btn').classList.remove('hidden')
+})
+
+
