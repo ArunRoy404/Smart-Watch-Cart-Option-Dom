@@ -142,12 +142,12 @@ function checkOut(product) {
 
 // checkout button functions 
 document.getElementById('checkout-btn').addEventListener('click',function(){
-    const cartModal = document.getElementById('cart-modal')
-    cartModal.classList.remove('hidden')
+    const cartModalContainer = document.getElementById('cart-modal-container')
+    cartModalContainer.classList.remove('hidden')
     document.getElementById('confirm-btn').innerText ="Checkout"
 
     document.getElementById('continue-btn').addEventListener('click',function(){
-        cartModal.classList.add('hidden')
+        cartModalContainer.classList.add('hidden')
     })
     document.getElementById('confirm-btn').addEventListener('click',function(){
         const totalQuantity = parseInt(document.getElementById('total-quantity').innerText)
