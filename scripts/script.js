@@ -44,28 +44,28 @@ let imgPath, color, size, perPrice, quantity;
 //      })
 //  }
 
-document.getElementById('color-container').addEventListener('click',function(event){
+document.getElementById('color-container').addEventListener('click', function (event) {
     const btn = event.target
     const buttonList = document.querySelectorAll('.color-btn')
-    if(btn.classList.contains('color-btn')){
-        for(const button of buttonList){
+    if (btn.classList.contains('color-btn')) {
+        for (const button of buttonList) {
             button.classList.remove('border-purple-400')
         }
         color = btn.value
         btn.classList.add('border-purple-400')
         const img = document.getElementById('product-img')
-        imgPath = "assets/images/"+ color +".png"
+        imgPath = "assets/images/" + color + ".png"
         img.src = imgPath
     }
 })
 
 
 // Size Selection 
-document.getElementById('size-container').addEventListener('click',function(event){
+document.getElementById('size-container').addEventListener('click', function (event) {
     const btn = event.target
     const buttonList = this.querySelectorAll('.size-btn')
-    if(btn.classList.contains('size-btn')){
-        for(const button of buttonList){
+    if (btn.classList.contains('size-btn')) {
+        for (const button of buttonList) {
             button.classList.remove('border-purple-400')
         }
         btn.classList.add('border-purple-400')
@@ -77,27 +77,26 @@ document.getElementById('size-container').addEventListener('click',function(even
 
 
 // quantity selection 
-document.getElementById('counter-container').addEventListener('click',function(event){
+document.getElementById('counter-container').addEventListener('click', function (event) {
     let counter = parseInt(document.getElementById('counter').innerText)
     let amount = 0
     const btn = event.target
-    if(btn.classList.contains('counter-btn')){ 
-        console.log(btn.id)
+    if (btn.classList.contains('counter-btn')) {
         amount = (btn.id === '+')
-                        ? 1
-                        : -1
+            ? 1
+            : -1
     }
     counter = Math.max(0, counter + amount)
-    console.log(counter,amount)
     document.getElementById('counter').innerText = counter
     quantity = counter
 })
 
 
 // add to cart 
-document.getElementById('cart-btn').addEventListener('click',function(){
-    if(imgPath === undefined || color === undefined || size === undefined || size === undefined || counter === undefined){
+document.getElementById('cart-btn').addEventListener('click', function () {
+    if (imgPath === undefined || color === undefined || size === undefined || size === undefined || counter === undefined) {
         alert("Please Select all options")
+        return
     }
     const product = {
         imgPath: imgPath,
@@ -111,3 +110,51 @@ document.getElementById('cart-btn').addEventListener('click',function(){
 })
 
 
+// set product in checkout 
+function checkOut(product) {
+    const cartTableBody = document.getElementById('cart-table-body')
+    const tr = document.createElement('tr')
+    tr.innerHTML = `
+        <td class="md:flex items-center">
+            <img class="w-12 rounded-md" src="${imgPath}" alt="">
+            <p class="md:pl-3 text-sm font-bold">Classy Modern Smart Watch</p>
+        </td>
+        <td>${product.color}</td>
+        <td>${product.size}</td>
+        <td>${product.quantity}</td>
+        <td><span>${product.perPrice * product.quantity}</span></td>
+    `
+    cartTableBody.appendChild(tr)
+
+    // set total quantity and price
+    let totalQuantity = parseInt(document.getElementById('total-quantity').innerText)
+    totalQuantity += product.quantity
+    let totalPrice = parseInt(document.getElementById('total-price').innerText)
+    totalPrice += product.perPrice * product.quantity
+    document.getElementById('total-quantity').innerText = totalQuantity
+    document.getElementById('total-price').innerText = totalPrice
+
+    // checkout counter function 
+    const checkoutCounter = parseFloat(document.getElementById('checkout-counter').innerText)
+    document.getElementById('checkout-counter').innerText = checkoutCounter + 1
+}
+
+
+// checkout button functions 
+document.getElementById('checkout-btn').addEventListener('click',function(){
+    const cartModal = document.getElementById('cart-modal')
+    cartModal.classList.remove('hidden')
+    document.getElementById('confirm-btn').innerText ="Checkout"
+
+    document.getElementById('continue-btn').addEventListener('click',function(){
+        cartModal.classList.add('hidden')
+    })
+    document.getElementById('confirm-btn').addEventListener('click',function(){
+        const totalQuantity = parseInt(document.getElementById('total-quantity').innerText)
+        if(totalQuantity<1){
+            alert('No Item In Cart')
+            return
+        }
+        document.getElementById('confirm-btn').innerText =" Done ✓ "
+    })
+})
