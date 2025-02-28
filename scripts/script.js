@@ -46,11 +46,12 @@ document.getElementById('color-container').addEventListener('click',function(eve
     const buttonList = document.querySelectorAll('.color-btn')
     const btn = event.target
     if(btn.classList.contains('color-btn')){
-
         for(const button of buttonList){
             button.classList.remove('border-purple-400')
         }
         color = btn.value
         btn.classList.add('border-purple-400')
+        const img = document.getElementById('product-img')
+        img.src = "assets/images/"+ color +".png"
     }
 })
