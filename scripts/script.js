@@ -90,5 +90,7 @@ document.getElementById('counter-container').addEventListener('click',function(e
     counter = Math.max(0, counter + amount)
     console.log(counter,amount)
     document.getElementById('counter').innerText = counter
+    quantity = counter
 })
+
 
