@@ -44,15 +44,35 @@ let imgPath, color, size, perPrice, quantity;
 //      })
 //  }
 
+ 
+// document.getElementById('color-container').addEventListener('click', function (event) {
+//     const btn = event.target
+//     const buttonList = document.querySelectorAll('.color-btn')
+//     if (btn.classList.contains('color-btn')) {
+//         for (const button of buttonList) {
+//             button.classList.remove('border-purple-400')
+//         }
+//         color = btn.value
+//         btn.classList.add('border-purple-400')
+//         const img = document.getElementById('product-img')
+//         imgPath = "assets/images/" + color + ".png"
+//         img.src = imgPath
+//     }
+// })
+
+
+// select the first color initially 
+LastSelectedColor = document.querySelector('.color-btn')
+color = LastSelectedColor.value
+LastSelectedColor.classList.add('border-purple-400')
+// color Selection 
 document.getElementById('color-container').addEventListener('click', function (event) {
-    const btn = event.target
-    const buttonList = document.querySelectorAll('.color-btn')
-    if (btn.classList.contains('color-btn')) {
-        for (const button of buttonList) {
-            button.classList.remove('border-purple-400')
-        }
-        color = btn.value
-        btn.classList.add('border-purple-400')
+    const currentColor = event.target
+    if (currentColor.classList.contains('color-btn')) {
+        LastSelectedColor.classList.remove('border-purple-400')
+        LastSelectedColor = currentColor
+        color = currentColor.value
+        currentColor.classList.add('border-purple-400')
         const img = document.getElementById('product-img')
         imgPath = "assets/images/" + color + ".png"
         img.src = imgPath
