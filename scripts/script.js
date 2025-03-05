@@ -126,7 +126,7 @@ document.getElementById('counter-container').addEventListener('click', function 
             ? 1
             : -1
     }
-    counter = Math.max(0, counter + amount)
+    counter = Math.max(1, counter + amount)
     document.getElementById('counter').innerText = counter
     quantity = counter
 })
@@ -134,10 +134,10 @@ document.getElementById('counter-container').addEventListener('click', function 
 
 // add to cart 
 document.getElementById('cart-btn').addEventListener('click', function () {
-    if (quantity === undefined) {
-        alert("Please Select Quantity")
-        return
-    }
+    // if (imgPath === undefined || color === undefined || size === undefined || size === undefined || quantity === undefined) {
+    //     alert("Please Select Quantity")
+    //     return
+    // }
     const product = {
         imgPath: imgPath,
         color: color,
