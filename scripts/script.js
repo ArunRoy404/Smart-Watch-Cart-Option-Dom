@@ -61,10 +61,11 @@ let imgPath, color, size, perPrice, quantity;
 // })
 
 
-// select the first color initially 
-LastSelectedColor = document.querySelector('.color-btn')
+// select the first color and img initially 
+let LastSelectedColor = document.querySelector('.color-btn')
 color = LastSelectedColor.value
 LastSelectedColor.classList.add('border-purple-400')
+imgPath = "assets/images/" + color + ".png"
 // color Selection 
 document.getElementById('color-container').addEventListener('click', function (event) {
     const currentColor = event.target
@@ -80,21 +81,40 @@ document.getElementById('color-container').addEventListener('click', function (e
 })
 
 
+// // Size Selection 
+// document.getElementById('size-container').addEventListener('click', function (event) {
+//     const btn = event.target
+//     const buttonList = this.querySelectorAll('.size-btn')
+//     if (btn.classList.contains('size-btn')) {
+//         for (const button of buttonList) {
+//             button.classList.remove('border-purple-400')
+//         }
+//         btn.classList.add('border-purple-400')
+//         const value = btn.value.split(' $')
+//         size = value[0]
+//         perPrice = value[1]
+//     }
+// })
+
+// set initial size 
+let LastSelectedSize = document.querySelector('.size-btn')
+LastSelectedSize.classList.add('border-purple-400')
+let sizeValue = LastSelectedSize.value.split(' $')
+size = sizeValue[0]
+perPrice = sizeValue[1]
 // Size Selection 
 document.getElementById('size-container').addEventListener('click', function (event) {
     const btn = event.target
-    const buttonList = this.querySelectorAll('.size-btn')
     if (btn.classList.contains('size-btn')) {
-        for (const button of buttonList) {
-            button.classList.remove('border-purple-400')
-        }
         btn.classList.add('border-purple-400')
         const value = btn.value.split(' $')
         size = value[0]
         perPrice = value[1]
+
+        LastSelectedSize.classList.remove('border-purple-400')
+        LastSelectedSize = btn
     }
 })
-
 
 // quantity selection 
 document.getElementById('counter-container').addEventListener('click', function (event) {
@@ -114,8 +134,8 @@ document.getElementById('counter-container').addEventListener('click', function 
 
 // add to cart 
 document.getElementById('cart-btn').addEventListener('click', function () {
-    if (imgPath === undefined || color === undefined || size === undefined || size === undefined || counter === undefined) {
-        alert("Please Select all options")
+    if (quantity === undefined) {
+        alert("Please Select Quantity")
         return
     }
     const product = {
